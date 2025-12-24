@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio of Naytaka Eka Putra - Digital Creator & Community Builder">
     <title>Naytaka Eka Putra | Portfolio</title>
     <!-- Google Fonts -->
@@ -144,7 +144,6 @@
             color: var(--light);
             font-size: 1.5rem;
             cursor: pointer;
-            z-index: 1001;
         }
         /* Hero Section */
         .hero {
@@ -184,6 +183,16 @@
             position: relative;
             opacity: 0;
             animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
         }
         .hero h1 span {
             display: inline-block;
@@ -288,6 +297,11 @@
             padding: 80px 0;
             position: relative;
         }
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+        }
         .section-title {
             text-align: center;
             margin-bottom: 60px;
@@ -318,6 +332,11 @@
             gap: 50px;
             align-items: center;
         }
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
         .about-text {
             animation: fadeInLeft 1s ease-out 0.5s forwards;
             opacity: 0;
@@ -335,6 +354,11 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .personal-info {
+                grid-template-columns: 1fr;
+            }
         }
         .info-item {
             background: rgba(255, 255, 255, 0.05);
@@ -450,10 +474,25 @@
             background: var(--primary);
             transform: translateX(-50%);
         }
+        @media (max-width: 992px) {
+            .timeline::before {
+                left: 31px;
+            }
+        }
         .timeline-item {
             position: relative;
             width: 50%;
             padding: 20px 40px;
+        }
+        @media (max-width: 992px) {
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
         }
         .timeline-item:nth-child(odd) {
             left: 0;
@@ -531,6 +570,11 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
+        }
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
         }
         .contact-info {
             display: flex;
@@ -650,9 +694,6 @@
                 transform: translateY(-10px);
             }
         }
-        .social-links a:hover i {
-            animation: rotateIcon 0.6s ease-in-out;
-        }
         @keyframes rotateIcon {
             from {
                 transform: rotate(0deg);
@@ -721,33 +762,7 @@
                 transform: translateX(0);
             }
         }
-        /* Mobile Responsiveness Fixes */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3.2rem;
-            }
-            .about-content,
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-            .timeline::before {
-                left: 31px;
-            }
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            .timeline-content::before {
-                left: -10px;
-            }
-            .timeline-item:nth-child(even) .timeline-content::before {
-                left: -10px;
-            }
-        }
+        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -761,59 +776,43 @@
                 padding: 20px 0;
                 gap: 15px;
                 backdrop-filter: blur(10px);
-                z-index: 999;
             }
             .nav-links.show {
-                display: flex !important;
+                display: flex;
             }
             .mobile-toggle {
                 display: block;
-                z-index: 1000;
             }
             .hero {
+                flex-direction: column;
                 text-align: center;
-                padding: 100px 0 50px !important;
+                padding: 150px 0 100px;
             }
             .hero-content {
+                order: 1;
                 margin: 0 auto;
-                margin-bottom: 220px;
+                max-width: 400px;
             }
             .hero-image {
-                width: 200px;
-                height: 200px;
-                top: auto;
-                bottom: 20px;
-                right: 50%;
-                transform: translateX(50%);
+                display: flex;
+                width: 250px;
+                height: 250px;
+                margin: 0 auto 30px;
+                order: 0;
                 position: relative;
+                top: auto;
+                right: auto;
+                transform: none;
             }
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
+                text-align: center;
+            }
+            .hero p {
+                text-align: center;
             }
             .section-title h2 {
                 font-size: 2rem;
-            }
-            section {
-                padding: 50px 0 !important;
-            }
-            .about-content,
-            .contact-container,
-            .personal-info {
-                grid-template-columns: 1fr !important;
-            }
-            .timeline::before {
-                left: 31px !important;
-            }
-            .timeline-item {
-                width: 100% !important;
-                padding-left: 70px !important;
-                padding-right: 0 !important;
-            }
-            .timeline-content {
-                transform: translateX(0) !important;
-            }
-            .skills-container {
-                grid-template-columns: 1fr !important;
             }
             .footer-content .social-links {
                 flex-wrap: wrap;
@@ -821,38 +820,19 @@
                 gap: 10px;
             }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
             .hero h1 {
-                font-size: 1.8rem !important;
+                font-size: 2.3rem;
             }
             .hero p {
-                font-size: 0.95rem !important;
+                font-size: 1rem;
             }
             .section-title h2 {
-                font-size: 1.5rem !important;
-            }
-            .about-text h3 {
-                font-size: 1.4rem;
-            }
-            .cta-button {
-                padding: 12px 25px !important;
-                font-size: 0.9rem !important;
+                font-size: 1.8rem;
             }
             section {
-                padding: 40px 0 !important;
+                padding: 70px 0;
             }
-            .container {
-                padding: 0 15px;
-            }
-        }
-        /* Ensure touch targets are large enough */
-        .cta-button, .contact-item a, .social-links a {
-            min-width: 44px;
-            min-height: 44px;
-        }
-        /* Prevent horizontal scrolling */
-        body {
-            overflow-x: hidden;
         }
         /* Particle Effect */
         #particles-js {
@@ -913,7 +893,7 @@
             </div>
             <div class="hero-image">
                 <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 50%;">
-                    <img src="nyan.gif" alt="Nyan Cat" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="nyan.gif" alt="Nyan Cat" style="width: 100%; height: 100%; object-fit: cover;">  
                 </div>
             </div>
         </div>
@@ -1124,6 +1104,85 @@
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
+        // Fungsi untuk interaksi klik dan drag pada ikon paper-plane
+        function setupPaperPlaneInteraction() {
+            const paperPlaneIcon = document.querySelector('.contact-form .fas.fa-paper-plane');
+            if (!paperPlaneIcon) {
+                console.error('Ikon paper-plane tidak ditemukan!');
+                return;
+            }
+            // Interaksi Klik
+            paperPlaneIcon.addEventListener('click', function() {
+                this.classList.add('clicked');
+                setTimeout(() => {
+                    this.classList.remove('clicked');
+                }, 500);
+            });
+            // Interaksi Drag
+            let isDragging = false;
+            let currentX;
+            let currentY;
+            let initialX;
+            let initialY;
+            let xOffset = 0;
+            let yOffset = 0;
+            
+            function dragStart(e) {
+                paperPlaneIcon.classList.remove('clicked');
+                setTimeout(() => {
+                    paperPlaneIcon.classList.remove('clicked');
+                }, 10);
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+                if (e.type === "touchstart") {
+                    initialX = e.touches[0].clientX - xOffset;
+                    initialY = e.touches[0].clientY - yOffset;
+                }
+                isDragging = true;
+            }
+            
+            function drag(e) {
+                if (isDragging) {
+                    e.preventDefault();
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                    if (e.type === "touchmove") {
+                        currentX = e.touches[0].clientX - initialX;
+                        currentY = e.touches[0].clientY - initialY;
+                    }
+                    xOffset = currentX;
+                    yOffset = currentY;
+                    setTranslate(currentX, currentY, paperPlaneIcon);
+                }
+            }
+            
+            function dragEnd(e) {
+                initialX = currentX;
+                initialY = currentY;
+                isDragging = false;
+            }
+            
+            function setTranslate(xPos, yPos, el) {
+                el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+            }
+            
+            paperPlaneIcon.addEventListener("mousedown", dragStart);
+            paperPlaneIcon.addEventListener("touchstart", dragStart);
+            document.addEventListener("mousemove", drag);
+            document.addEventListener("touchmove", drag);
+            document.addEventListener("mouseup", dragEnd);
+            document.addEventListener("touchend", dragEnd);
+        }
+        
+        // Animate skill bars
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const level = bar.getAttribute('data-level');
+                bar.style.width = level;
+            });
+        }
+        
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
@@ -1132,18 +1191,6 @@
             } else {
                 header.classList.remove('scrolled');
             }
-        });
-        
-        // Mobile menu toggle
-        document.querySelector('.mobile-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('show');
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('.nav-links').classList.remove('show');
-            });
         });
         
         // Smooth scrolling
@@ -1166,25 +1213,17 @@
             const parallax = document.querySelectorAll('.parallax-layer');
             const speed = 0.5;
             for (let i = 0; i < parallax.length; i++) {
-                const yPos = -(scrolled * parallax[i].dataset.speed || speed);
+                const yPos = -(scrolled * speed);
                 parallax[i].style.transform = `translateY(${yPos}px)`;
             }
         });
-        
-        // Animate skill bars
-        function animateSkillBars() {
-            const skillBars = document.querySelectorAll('.skill-progress');
-            skillBars.forEach(bar => {
-                const level = bar.getAttribute('data-level');
-                bar.style.width = level;
-            });
-        }
         
         // Intersection Observer untuk animasi scroll-triggered
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1196,55 +1235,87 @@
             });
         }, observerOptions);
         
-        // Apply observer to elements
-        document.querySelectorAll('.skills-container').forEach(element => {
+        // Apply observer to skills container
+        document.querySelector('.skills-container').forEach(element => {
             observer.observe(element);
         });
         
         // Initialize particles
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#6C63FF" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5, random: true },
-                size: { value: 3, random: true },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: "#6C63FF",
-                    opacity: 0.2,
-                    width: 1
+        window.addEventListener('load', function() {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: "#6C63FF" },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#6C63FF",
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out"
+                    }
                 },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out"
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: { enable: true, mode: "grab" },
-                    onclick: { enable: true, mode: "push" },
-                    resize: true
-                }
-            },
-            retina_detect: true
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "grab" },
+                        onclick: { enable: true, mode: "push" },
+                        resize: true
+                    }
+                },
+                retina_detect: true
+            });
+            
+            // Setup paper plane interaction
+            setupPaperPlaneInteraction();
+            
+            // Update year in copyright
+            document.querySelector('.copyright').innerHTML = `© ${new Date().getFullYear()} Naytaka Eka Putra. All rights reserved.`;
         });
         
-        // Update year in copyright
-        document.querySelector('.copyright').innerHTML = `© ${new Date().getFullYear()} Naytaka Eka Putra. All rights reserved.`;
+        // Mobile menu toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        });
         
-        // Paper plane animation
-        document.querySelector('.contact-form .fas.fa-paper-plane').addEventListener('click', function() {
-            this.classList.add('clicked');
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('show');
+            });
+        });
+        
+        // Initial animations after page load
+        window.addEventListener('load', function() {
+            // Trigger initial animations
+            document.querySelectorAll('.skill-progress').forEach(bar => {
+                bar.style.width = '0';
+            });
+            // Start animations after a short delay
             setTimeout(() => {
-                this.classList.remove('clicked');
-            }, 500);
+                document.querySelectorAll('.skill-card').forEach(card => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                });
+                // Animate hero elements if they haven't loaded yet
+                if (window.pageYOffset === 0) {
+                    document.querySelector('.hero h1').style.animation = 'fadeInUp 1s ease-out 0.5s forwards';
+                    document.querySelector('.hero p').style.animation = 'fadeInUp 1s ease-out 1s forwards';
+                    document.querySelector('.cta-button').style.animation = 'fadeInUp 1s ease-out 1.5s forwards';
+                    document.querySelector('.hero-image').style.animation = 'fadeInRight 1s ease-out 2s forwards';
+                }
+            }, 100);
         });
     </script>
     <!-- Particle Container -->
